@@ -19,7 +19,7 @@ const AnswerSet = ({ correct }: { correct: string }) => {
 
   return (
     <Box>
-      <Typography>Choose an answer</Typography>
+      <Typography>Choose a pattern</Typography>
       <Stack gap={2}>
         {answers.map((answer) => (
           <Answer

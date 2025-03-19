@@ -3,7 +3,7 @@ import { IQuestion } from "../interfaces/question";
 import AnswerSet from "./AnswerSet";
 
 const Question = ({ question }: { question: IQuestion }) => {
-  const { questionText, input, output, info, answer } = question;
+  const { name, questionText, input, output, info, answer } = question;
   return (
     <Box display={"flex"} justifyContent={"space-around"} width={"100%"} mb={4}>
       <Stack
@@ -15,7 +15,7 @@ const Question = ({ question }: { question: IQuestion }) => {
           borderRadius: "25px",
         }}
       >
-        <Typography variant={"h5"}>{questionText}</Typography>
+        <Typography variant={"h5"}>{name}</Typography>
         <Box
           display={"flex"}
           flexDirection={"column"}
@@ -23,6 +23,7 @@ const Question = ({ question }: { question: IQuestion }) => {
           p={4}
           textAlign={"left"}
         >
+          <Typography mb={2}>{questionText}</Typography>
           <Typography>input: {input}</Typography>
           <Typography>output: {output}</Typography>
           <Typography>info: {info}</Typography>
