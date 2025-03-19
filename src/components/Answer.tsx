@@ -24,6 +24,7 @@ const Answer = ({
       onClick={() => handleClick(id)}
       variant="contained"
       sx={{
+        textTransform: "lowercase",
         background: getBackground(),
         borderRadius: "10px",
         py: 1.5,

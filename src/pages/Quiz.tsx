@@ -4,7 +4,7 @@ import Question from "../components/Question";
 import { Box, Button } from "@mui/material";
 import { useState } from "react";
 
-const Quiz = ({ quizData = questionData }: { quizData: IQuestion[] }) => {
+const Quiz = ({ quizData = questionData }: { quizData?: IQuestion[] }) => {
   const [currQ, setCurrQ] = useState(0);
   const lastQ = quizData.length - 1;
 
@@ -18,10 +18,22 @@ const Quiz = ({ quizData = questionData }: { quizData: IQuestion[] }) => {
 
   return (
     <Box>
-      <Question question={quizData[currQ]} />
-      <Button variant={"contained"} onClick={nextQuestion}>
-        {currQ < lastQ ? "next" : "restart"}
-      </Button>
+      <Box></Box>
+      <Box>
+        <Question question={quizData[currQ]} />
+        <Button
+          sx={{
+            textTransform: "lowercase",
+            borderRadius: "20px",
+            padding: "5px",
+            background: "#1a4983",
+          }}
+          variant={"contained"}
+          onClick={nextQuestion}
+        >
+          {currQ < lastQ ? "next" : "restart"}
+        </Button>
+      </Box>
     </Box>
   );
 };

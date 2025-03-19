@@ -7,10 +7,11 @@ const Question = ({ question }: { question: IQuestion }) => {
   return (
     <Box
       display={"flex"}
-      justifyContent={"space-around"}
-      width={"100%"}
-      mb={4}
+      justifyContent={{ md: "space-around", xs: "center" }}
+      width={"90%"}
+      p={2}
       flexDirection={{ md: "row", xs: "column" }}
+      sx={{ overflowY: "auto" }}
     >
       <Stack
         mb={4}
@@ -19,6 +20,8 @@ const Question = ({ question }: { question: IQuestion }) => {
           width: { xs: "100%", md: "80%" },
           background: "#244A57",
           borderRadius: "25px",
+          maxHeight: { md: "80vh", xs: "50vh" },
+          overflowY: "auto",
         }}
       >
         <Typography variant={"h5"}>{name}</Typography>
@@ -36,7 +39,7 @@ const Question = ({ question }: { question: IQuestion }) => {
         </Box>
       </Stack>
       <Box>
-        <AnswerSet correct={answer} />
+        <AnswerSet correct={answer} questionName={name} />
       </Box>
     </Box>
   );
