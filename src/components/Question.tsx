@@ -5,12 +5,18 @@ import AnswerSet from "./AnswerSet";
 const Question = ({ question }: { question: IQuestion }) => {
   const { name, questionText, input, output, info, answer } = question;
   return (
-    <Box display={"flex"} justifyContent={"space-around"} width={"100%"} mb={4}>
+    <Box
+      display={"flex"}
+      justifyContent={"space-around"}
+      width={"100%"}
+      mb={4}
+      flexDirection={{ md: "row", xs: "column" }}
+    >
       <Stack
         mb={4}
         py={4}
         sx={{
-          width: "80%",
+          width: { xs: "100%", md: "80%" },
           background: "#244A57",
           borderRadius: "25px",
         }}

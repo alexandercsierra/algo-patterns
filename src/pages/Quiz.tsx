@@ -1,14 +1,27 @@
 import { questionData } from "../data/testData";
 import { IQuestion } from "../interfaces/question";
 import Question from "../components/Question";
-import { Box } from "@mui/material";
+import { Box, Button } from "@mui/material";
+import { useState } from "react";
 
 const Quiz = ({ quizData = questionData }: { quizData: IQuestion[] }) => {
+  const [currQ, setCurrQ] = useState(0);
+  const lastQ = quizData.length - 1;
+
+  const nextQuestion = () => {
+    if (currQ < lastQ) {
+      setCurrQ(currQ + 1);
+    } else {
+      setCurrQ(0);
+    }
+  };
+
   return (
     <Box>
-      {quizData.map((q) => (
-        <Question question={q} />
-      ))}
+      <Question question={quizData[currQ]} />
+      <Button variant={"contained"} onClick={nextQuestion}>
+        {currQ < lastQ ? "next" : "restart"}
+      </Button>
     </Box>
   );
 };
