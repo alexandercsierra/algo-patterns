@@ -18,22 +18,11 @@ const Quiz = ({ quizData = questionData }: { quizData?: IQuestion[] }) => {
 
   return (
     <Box>
-      <Box></Box>
-      <Box>
-        <Question question={quizData[currQ]} />
-        <Button
-          sx={{
-            textTransform: "lowercase",
-            borderRadius: "20px",
-            padding: "5px",
-            background: "#1a4983",
-          }}
-          variant={"contained"}
-          onClick={nextQuestion}
-        >
-          {currQ < lastQ ? "next" : "restart"}
-        </Button>
-      </Box>
+      <Question
+        question={quizData[currQ]}
+        nextQuestion={nextQuestion}
+        nextLabel={currQ < lastQ ? "next" : "restart"}
+      />
     </Box>
   );
 };

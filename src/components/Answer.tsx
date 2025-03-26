@@ -17,8 +17,8 @@ const Answer = ({
   const [background, setBackground] = useState<string>("none");
 
   const getBackground = () => {
-    if (isCorrect && isSelected) return setBackground("green");
-    if (isSelected) return setBackground("primary");
+    if (isCorrect && isSelected) return setBackground("#2CA357");
+    if (isSelected) return setBackground("#c14d4d");
 
     return setBackground("none");
   };
