@@ -1,5 +1,6 @@
-import { Button } from "@mui/material";
+import { Button, Typography } from "@mui/material";
 import { IAnswer } from "../interfaces/question";
+import { useState, useEffect } from "react";
 
 const Answer = ({
   answer,
@@ -13,24 +14,48 @@ const Answer = ({
   isCorrect: boolean;
 }): React.ReactElement => {
   const { id, ans } = answer;
+  const [background, setBackground] = useState<string>("none");
 
   const getBackground = () => {
-    if (isCorrect && isSelected) return "green";
-    if (isSelected) return "black";
-    return "#244A57";
+    if (isCorrect && isSelected) return setBackground("green");
+    if (isSelected) return setBackground("primary");
+
+    return setBackground("none");
   };
+
+  useEffect(() => {
+    getBackground();
+  }, [isSelected, isCorrect]);
   return (
     <Button
       onClick={() => handleClick(id)}
       variant="contained"
-      sx={{
+      sx={(theme) => ({
+        display: "flex",
+        justifyContent: "flex-start",
         textTransform: "lowercase",
-        background: getBackground(),
-        borderRadius: "10px",
-        py: 1.5,
-      }}
+        background,
+        borderRadius: "45px",
+        boxShadow: "none",
+        color: isSelected ? "#1f2122" : "text.primary",
+        transition: "all 0s ease-in-out !important",
+
+        "&:hover": {
+          background: theme.palette.primary.main,
+          color: "#1F2122 !important",
+          transition: "all 0s ease-in-out !important",
+        },
+      })}
     >
-      {ans}
+      <Typography
+        variant={"h6"}
+        sx={{
+          color: "inherit",
+          fontWeight: 800,
+        }}
+      >
+        {ans}
+      </Typography>
     </Button>
   );
 };

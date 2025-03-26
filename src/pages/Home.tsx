@@ -3,8 +3,24 @@ import { NavLink } from "react-router-dom";
 
 const Home = (): React.ReactNode => {
   return (
-    <Stack display={"flex"} justifyContent={"center"} alignItems={"center"}>
-      <Typography variant={"h2"}>Practice Algorithm Patterns</Typography>
+    <Stack
+      display={"flex"}
+      justifyContent={"center"}
+      alignItems={"center"}
+      gap={4}
+      minHeight={"100vh"}
+    >
+      <Typography
+        variant={"h2"}
+        color={"primary.main"}
+        sx={{ fontWeight: "700" }}
+      >
+        Algo Patterns
+      </Typography>
+      <Typography>
+        Learn different algorithm patterns. <br />
+        Practice them on the go.
+      </Typography>
       <NavLink to="/quiz">
         <Button
           variant={"contained"}
@@ -13,8 +29,9 @@ const Home = (): React.ReactNode => {
             textTransform: "lowercase",
             fontSize: "25px",
             width: "200px",
-            background: "#244A57",
-            borderRadius: "14px",
+            background: "primary.main",
+            borderRadius: "45px",
+            fontWeight: "800",
           }}
         >
           start

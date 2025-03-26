@@ -18,13 +18,14 @@ const Question = ({ question }: { question: IQuestion }) => {
         py={4}
         sx={{
           width: { xs: "100%", md: "80%" },
-          background: "#244A57",
           borderRadius: "25px",
           maxHeight: { md: "80vh", xs: "50vh" },
           overflowY: "auto",
         }}
       >
-        <Typography variant={"h5"}>{name}</Typography>
+        <Typography variant={"h5"} color={"primary"}>
+          {name}
+        </Typography>
         <Box
           display={"flex"}
           flexDirection={"column"}

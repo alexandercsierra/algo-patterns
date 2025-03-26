@@ -22,13 +22,12 @@ const AnswerSet = ({
   };
 
   return (
-    <Box sx={{ border: "3px solid grey", borderRadius: "20px", pt: 2 }}>
+    <Box sx={{ pt: 2 }}>
       <Typography>Choose a pattern</Typography>
       <Stack
-        gap={2}
         sx={{
-          maxHeight: { md: "100vh", xs: "25vh" },
-          overflowY: "auto",
+          display: "flex",
+          justifyContent: "flex-start",
           p: 2,
         }}
       >
