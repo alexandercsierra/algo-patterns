@@ -58,28 +58,52 @@ const Question = ({
             <Typography variant={"body2"}>info: {info}</Typography>
           </Box>
         </CodeBlock>
+        <Box sx={{ display: { xs: "none", md: "block" } }}>
+          <NextButton label={nextLabel} onClick={nextQuestion} />
+        </Box>
       </Stack>
       <Box>
         <AnswerSet correct={answer} questionName={name} />
       </Box>
-      <Button
+      <Box
         sx={{
-          alignSelf: "center",
-          mt: 3,
-          textTransform: "lowercase",
-          borderRadius: "20px",
-          padding: "5px",
-          fontWeight: 800,
-          color: "secondary",
-          background: "primary",
-          width: "200px",
+          display: { xs: "flex", md: "none" },
+          width: "100%",
+          alignItems: "center",
+          justifyContent: "center",
         }}
-        variant={"contained"}
-        onClick={nextQuestion}
       >
-        {nextLabel}
-      </Button>
+        <NextButton label={nextLabel} onClick={nextQuestion} />
+      </Box>
     </Box>
+  );
+};
+
+const NextButton = ({
+  label,
+  onClick,
+}: {
+  label: string;
+  onClick: () => void;
+}) => {
+  return (
+    <Button
+      sx={{
+        alignSelf: "center",
+        mt: 3,
+        textTransform: "lowercase",
+        borderRadius: "20px",
+        padding: "5px",
+        fontWeight: 800,
+        color: "secondary",
+        background: "primary",
+        width: "200px",
+      }}
+      variant={"contained"}
+      onClick={onClick}
+    >
+      {label}
+    </Button>
   );
 };
 

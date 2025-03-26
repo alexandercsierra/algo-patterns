@@ -57,10 +57,11 @@ const Answer = ({
       })}
     >
       <Typography
-        variant={"h6"}
         sx={{
           color: "inherit",
+          textAlign: "left",
           fontWeight: 800,
+          fontSize: { xs: "1.3rem", md: "1rem" },
         }}
       >
         {ans}
