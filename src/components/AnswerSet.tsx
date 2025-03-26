@@ -28,6 +28,7 @@ const AnswerSet = ({
         sx={{
           display: "flex",
           justifyContent: "flex-start",
+          width: "90%",
           p: 2,
         }}
       >

@@ -41,8 +41,8 @@ const Answer = ({
         transition: "all 0s ease-in-out !important",
 
         "&:hover": {
-          background: theme.palette.primary.main,
-          color: "#1F2122 !important",
+          background: isSelected ? "" : theme.palette.primary.main,
+          color: isSelected ? "text.primary" : "#1F2122 !important",
           transition: "all 0s ease-in-out !important",
         },
       })}
