@@ -1,7 +1,7 @@
 import { questionData } from "../data/testData";
 import { IQuestion } from "../interfaces/question";
 import Question from "../components/Question";
-import { Box, Button } from "@mui/material";
+import { Box } from "@mui/material";
 import { useState } from "react";
 
 const Quiz = ({ quizData = questionData }: { quizData?: IQuestion[] }) => {
