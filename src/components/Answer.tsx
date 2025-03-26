@@ -35,6 +35,7 @@ const Answer = ({
     <Button
       onClick={() => handleClick(id)}
       variant="contained"
+      disableRipple
       sx={(theme) => ({
         display: "flex",
         justifyContent: "flex-start",
