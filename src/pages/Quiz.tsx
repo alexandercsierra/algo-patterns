@@ -19,6 +19,7 @@ const Quiz = ({ quizData = questionData }: { quizData?: IQuestion[] }) => {
   return (
     <Box>
       <Question
+        quizInfo={{ currQ: currQ + 1, total: lastQ + 1 }}
         question={quizData[currQ]}
         nextQuestion={nextQuestion}
         nextLabel={currQ < lastQ ? "next" : "restart"}

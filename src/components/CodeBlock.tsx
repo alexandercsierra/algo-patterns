@@ -6,9 +6,11 @@ const light = "#494949";
 const CodeBlock = ({
   children,
   allowCopy = false,
+  quizInfo,
 }: {
   children: any;
   allowCopy?: boolean;
+  quizInfo?: { currQ: number; total: number };
 }) => {
   return (
     <Box
@@ -21,13 +23,18 @@ const CodeBlock = ({
           background: light,
           height: "30px",
           width: "100%",
-
+          boxSizing: "border-box",
           borderTopLeftRadius: "20px",
           borderTopRightRadius: "20px",
           display: "flex",
-          justifyContent: "flex-end",
+          justifyContent: "space-between",
+          alignItems: "center",
+          px: 3,
         }}
       >
+        <Typography sx={{ fontWeight: "800", color: "primary.main" }}>
+          {`${quizInfo?.currQ} / ${quizInfo?.total}`}
+        </Typography>
         {allowCopy && (
           <Button
             sx={{

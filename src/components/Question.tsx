@@ -7,10 +7,12 @@ const Question = ({
   question,
   nextQuestion,
   nextLabel,
+  quizInfo,
 }: {
   question: IQuestion;
   nextQuestion: () => void;
   nextLabel: string;
+  quizInfo: { currQ: number; total: number };
 }) => {
   const { name, questionText, input, output, info, answer } = question;
   return (
@@ -42,7 +44,7 @@ const Question = ({
         >
           {name}
         </Typography>
-        <CodeBlock>
+        <CodeBlock quizInfo={quizInfo}>
           <Box
             display={"flex"}
             flexDirection={"column"}
