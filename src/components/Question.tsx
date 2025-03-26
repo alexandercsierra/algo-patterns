@@ -50,32 +50,35 @@ const Question = ({
             p={4}
             textAlign={"left"}
           >
-            <Typography mb={2}>{questionText}</Typography>
-            <Typography>input: {input}</Typography>
-            <Typography>output: {output}</Typography>
-            <Typography>info: {info}</Typography>
+            <Typography variant={"body2"} mb={2}>
+              {questionText}
+            </Typography>
+            <Typography variant={"body2"}>input: {input}</Typography>
+            <Typography variant={"body2"}>output: {output}</Typography>
+            <Typography variant={"body2"}>info: {info}</Typography>
           </Box>
         </CodeBlock>
-        <Button
-          sx={{
-            mt: 3,
-            textTransform: "lowercase",
-            borderRadius: "20px",
-            padding: "5px",
-            fontWeight: 800,
-            color: "secondary",
-            background: "primary",
-            width: "200px",
-          }}
-          variant={"contained"}
-          onClick={nextQuestion}
-        >
-          {nextLabel}
-        </Button>
       </Stack>
       <Box>
         <AnswerSet correct={answer} questionName={name} />
       </Box>
+      <Button
+        sx={{
+          alignSelf: "center",
+          mt: 3,
+          textTransform: "lowercase",
+          borderRadius: "20px",
+          padding: "5px",
+          fontWeight: 800,
+          color: "secondary",
+          background: "primary",
+          width: "200px",
+        }}
+        variant={"contained"}
+        onClick={nextQuestion}
+      >
+        {nextLabel}
+      </Button>
     </Box>
   );
 };

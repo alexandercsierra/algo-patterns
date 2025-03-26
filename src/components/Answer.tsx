@@ -7,17 +7,22 @@ const Answer = ({
   handleClick,
   isSelected,
   isCorrect,
+  showCorrectOnly,
 }: {
   answer: IAnswer;
   handleClick: (id: string) => void;
   isSelected: boolean;
   isCorrect: boolean;
+  showCorrectOnly: (id: string) => void;
 }): React.ReactElement => {
   const { id, ans } = answer;
   const [background, setBackground] = useState<string>("none");
 
   const getBackground = () => {
-    if (isCorrect && isSelected) return setBackground("#2CA357");
+    if (isCorrect && isSelected) {
+      showCorrectOnly(id);
+      return setBackground("#2CA357");
+    }
     if (isSelected) return setBackground("#c14d4d");
 
     return setBackground("none");

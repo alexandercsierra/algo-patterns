@@ -2,6 +2,7 @@ import { Stack, Box, Typography } from "@mui/material";
 import { answers } from "../data/testData";
 import Answer from "./Answer";
 import { useState, useEffect } from "react";
+import { IAnswer } from "../interfaces/question";
 
 const AnswerSet = ({
   correct,
@@ -11,15 +12,21 @@ const AnswerSet = ({
   correct: string;
 }) => {
   const [selected, setSelected] = useState<string>("");
-
-  // clear answer with each new question
-  useEffect(() => {
-    setSelected("");
-  }, [questionName]);
+  const [displayAnswers, setDisplayAnswers] = useState<IAnswer[]>(answers);
 
   const handleClick = (id: string) => {
     setSelected(id);
   };
+
+  const showCorrectOnly = (id: string) => {
+    setDisplayAnswers(answers.filter((answer) => answer.id === id));
+  };
+
+  // clear answer with each new question
+  useEffect(() => {
+    setSelected("");
+    setDisplayAnswers(answers);
+  }, [questionName]);
 
   return (
     <Box sx={{ pt: 2 }}>
@@ -32,12 +39,13 @@ const AnswerSet = ({
           p: 2,
         }}
       >
-        {answers.map((answer) => (
+        {displayAnswers.map((answer) => (
           <Answer
             answer={answer}
             handleClick={handleClick}
-            isSelected={selected.includes(answer.id)}
+            isSelected={selected === answer.id}
             isCorrect={correct === answer.id}
+            showCorrectOnly={showCorrectOnly}
           />
         ))}
       </Stack>
