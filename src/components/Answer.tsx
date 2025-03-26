@@ -44,10 +44,13 @@ const Answer = ({
         boxShadow: "none",
         color: isSelected ? "#1f2122" : "text.primary",
         transition: "all 0s ease-in-out !important",
-
+        "&:focus": {
+          outline: "none",
+          boxShadow: "none",
+        },
         "&:hover": {
           background: isSelected ? "" : theme.palette.primary.main,
-          color: isSelected ? "text.primary" : "#1F2122 !important",
+          color: "secondary.main",
           transition: "all 0s ease-in-out !important",
         },
       })}
