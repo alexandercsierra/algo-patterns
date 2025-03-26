@@ -73,7 +73,13 @@ const Question = ({
           justifyContent: "center",
         }}
       >
-        <NextButton label={nextLabel} onClick={nextQuestion} />
+        <NextButton
+          label={nextLabel}
+          onClick={() => {
+            nextQuestion();
+            window?.scrollTo({ top: 0, behavior: "smooth" });
+          }}
+        />
       </Box>
     </Box>
   );
