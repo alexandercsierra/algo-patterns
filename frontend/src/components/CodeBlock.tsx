@@ -8,7 +8,7 @@ const CodeBlock = ({
   allowCopy = false,
   quizInfo,
 }: {
-  children: any;
+  children: React.ReactNode;
   allowCopy?: boolean;
   quizInfo?: { currQ: number; total: number };
 }) => {

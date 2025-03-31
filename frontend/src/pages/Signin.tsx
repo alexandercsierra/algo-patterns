@@ -6,10 +6,12 @@ import { useEffect } from "react";
 
 const SignIn = () => {
   const dispatch = useDispatch();
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const user = useSelector((state: any) => state.auth.user);
   const [searchParams] = useSearchParams();
   const profile = searchParams.get("profile");
   const profileInfo = JSON.parse(profile || "{}");
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const addUserToRedux = (user: any) => dispatch(addUser(user));
 
   useEffect(() => {

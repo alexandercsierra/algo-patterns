@@ -102,6 +102,7 @@ const HamburgerPatty = () => {
 };
 
 const Nav = () => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const user = useSelector((state: any) => state.auth.user);
   const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null);
   const [open, setOpen] = useState(false);
