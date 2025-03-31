@@ -4,6 +4,7 @@ import Quiz from "./pages/Quiz";
 import { Routes, Route } from "react-router-dom";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Nav from "./components/Nav";
+import Signin from "./pages/Signin";
 
 const theme = createTheme({
   palette: {
@@ -30,6 +31,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/quiz" element={<Quiz />} />
+        <Route path="/signin" element={<Signin />} />
       </Routes>
     </ThemeProvider>
   );

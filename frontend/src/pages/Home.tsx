@@ -37,6 +37,20 @@ const Home = (): React.ReactNode => {
           start
         </Button>
       </NavLink>
+      <Button
+        href={`${import.meta.env.VITE_API_URL}/api/auth/login/google`}
+        variant={"contained"}
+        sx={{
+          color: "secondary",
+          backgroundColor: "text.primary",
+          textTransform: "none",
+          fontSize: "1.2rem",
+          fontWeight: "bold",
+          borderRadius: "25px",
+        }}
+      >
+        Sign in with Google
+      </Button>
     </Stack>
   );
 };
