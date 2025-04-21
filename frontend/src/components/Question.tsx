@@ -1,4 +1,4 @@
-import { Stack, Box, Typography, Button } from "@mui/material";
+import { Stack, Box, Typography } from "@mui/material";
 import { IQuestion } from "../interfaces/question";
 import AnswerSet from "./AnswerSet";
 import CodeBlock from "./CodeBlock";
@@ -6,30 +6,34 @@ import CodeBlock from "./CodeBlock";
 const Question = ({
   question,
   nextQuestion,
-  nextLabel,
   quizInfo,
+  noAnswers = false,
+  fade = true,
 }: {
   question: IQuestion;
   nextQuestion: () => void;
-  nextLabel: string;
   quizInfo: { currQ: number; total: number };
+  noAnswers?: boolean;
+  fade?: boolean;
 }) => {
   const { name, questionText, input, output, info, answer } = question;
+
   return (
     <Box
       display={"flex"}
-      justifyContent={{ md: "space-around", xs: "center" }}
+      justifyContent={"center"}
+      alignItems={"center"}
       width={"90%"}
       p={2}
-      flexDirection={{ md: "row", xs: "column" }}
+      flexDirection={"column"}
       sx={{ overflowY: "auto" }}
     >
       <Stack
         display={"flex"}
         alignItems={"center"}
-        mb={4}
-        py={4}
         sx={{
+          pt: 4,
+          mb: { xs: 0, md: 4 },
           width: { xs: "100%", md: "80%" },
           borderRadius: "25px",
         }}
@@ -44,74 +48,55 @@ const Question = ({
         >
           {name}
         </Typography>
-        <CodeBlock quizInfo={quizInfo}>
+        <CodeBlock quizInfo={quizInfo} fade={fade}>
           <Box
             display={"flex"}
             flexDirection={"column"}
             alignItems={"flex-start"}
             p={4}
             textAlign={"left"}
+            sx={{ fontSize: { xs: "1rem", md: "1.2rem" } }}
           >
-            <Typography variant={"body2"} mb={2}>
+            <Typography variant={"body2"} mb={2} sx={{ fontSize: "inherit" }}>
               {questionText}
             </Typography>
-            <Typography variant={"body2"}>input: {input}</Typography>
-            <Typography variant={"body2"}>output: {output}</Typography>
-            <Typography variant={"body2"}>info: {info}</Typography>
+            <Typography variant={"body2"} sx={{ fontSize: "inherit" }}>
+              input: {input}
+            </Typography>
+            <Typography variant={"body2"} sx={{ fontSize: "inherit" }}>
+              output: {output}
+            </Typography>
+            <Typography variant={"body2"} sx={{ fontSize: "inherit" }}>
+              info: {info}
+            </Typography>
           </Box>
         </CodeBlock>
-        <Box sx={{ display: { xs: "none", md: "block" } }}>
-          <NextButton label={nextLabel} onClick={nextQuestion} />
-        </Box>
-      </Stack>
-      <Box>
-        <AnswerSet correct={answer} questionName={name} />
-      </Box>
-      <Box
-        sx={{
-          display: { xs: "flex", md: "none" },
-          width: "100%",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-      >
-        <NextButton
-          label={nextLabel}
-          onClick={() => {
-            nextQuestion();
-            window?.scrollTo({ top: 0, behavior: "smooth" });
-          }}
-        />
-      </Box>
-    </Box>
-  );
-};
 
-const NextButton = ({
-  label,
-  onClick,
-}: {
-  label: string;
-  onClick: () => void;
-}) => {
-  return (
-    <Button
-      sx={{
-        alignSelf: "center",
-        mt: 3,
-        textTransform: "lowercase",
-        borderRadius: "20px",
-        padding: "5px",
-        fontWeight: 800,
-        color: "secondary",
-        background: "primary",
-        width: "200px",
-      }}
-      variant={"contained"}
-      onClick={onClick}
-    >
-      {label}
-    </Button>
+        <Box sx={{ display: { xs: "none", md: "block" } }}></Box>
+      </Stack>
+      {!noAnswers && (
+        <>
+          <Box
+            sx={{
+              display: { xs: "flex", md: "none" },
+              width: "100%",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          ></Box>
+          <Box>
+            <AnswerSet
+              correct={answer}
+              questionName={name}
+              nextOnClick={() => {
+                nextQuestion();
+                window?.scrollTo({ top: 0, behavior: "smooth" });
+              }}
+            />
+          </Box>
+        </>
+      )}
+    </Box>
   );
 };
 

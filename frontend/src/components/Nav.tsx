@@ -92,8 +92,8 @@ const HamburgerPatty = () => {
     <Box
       sx={{
         backgroundColor: "secondary.main",
-        width: "20px",
-        height: "4px",
+        width: "19px",
+        height: "3px",
         borderRadius: "25px",
         my: "2px",
       }}
@@ -130,7 +130,7 @@ const Nav = () => {
         mt: 1,
       }}
     >
-      {!user && <SignInButton />}
+      {/* {!user && <SignInButton />} */}
       <Box
         sx={{
           display: "flex",
@@ -146,8 +146,8 @@ const Nav = () => {
           }
           sx={{
             backgroundColor: "primary.main",
-            height: "50px",
-            width: "50px",
+            height: "35px",
+            width: "35px",
             borderRadius: "100%",
 
             display: "flex",

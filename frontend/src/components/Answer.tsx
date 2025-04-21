@@ -37,22 +37,27 @@ const Answer = ({
       variant="contained"
       disableRipple
       sx={(theme) => ({
+        m: 1,
+        border: "2px solid grey",
+        width: "fit-content",
         display: "flex",
         justifyContent: "flex-start",
         textTransform: "lowercase",
         background,
         borderRadius: "45px",
-        boxShadow: "none",
         color: isSelected ? "#1f2122" : "text.primary",
         transition: "all 0s ease-in-out !important",
+        boxShadow: "3px 3px 0px 0px grey",
+
         "&:focus": {
-          outline: "none",
-          boxShadow: "none",
+          outline: "none !important",
+          boxShadow: "none !important",
         },
         "&:hover": {
           background: isSelected ? "" : theme.palette.primary.main,
           color: "secondary.main",
           transition: "all 0s ease-in-out !important",
+          border: "2px solid grey",
         },
       })}
     >
@@ -61,7 +66,7 @@ const Answer = ({
           color: "inherit",
           textAlign: "left",
           fontWeight: 800,
-          fontSize: { xs: "1.3rem", md: "1rem" },
+          fontSize: { xs: ".875rem", md: "1rem" },
         }}
       >
         {ans}

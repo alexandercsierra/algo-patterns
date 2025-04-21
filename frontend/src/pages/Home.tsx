@@ -1,57 +1,98 @@
-import { Stack, Typography, Button } from "@mui/material";
+import { Box, Button, Typography } from "@mui/material";
+import Question from "../components/Question";
+import Answer from "../components/Answer";
 import { NavLink } from "react-router-dom";
 
-const Home = (): React.ReactNode => {
+const Home = () => {
   return (
-    <Stack
-      display={"flex"}
-      justifyContent={"center"}
-      alignItems={"center"}
-      gap={4}
-      minHeight={"100vh"}
+    <Box
+      sx={{
+        display: "flex",
+        justifyContent: "center",
+        flexDirection: "column",
+        alignItems: "center",
+        maxWidth: "1000px",
+        margin: "0 auto",
+      }}
     >
+      <Typography variant={"h2"} sx={{ fontWeight: "700" }}>
+        Algo Patterns To Go
+      </Typography>
+      <Typography variant={"h6"}>
+        study patterns to help you master algorithm problems on the go
+      </Typography>
       <Typography
-        variant={"h2"}
-        color={"primary.main"}
-        sx={{ fontWeight: "700" }}
-      >
-        Algo Patterns
-      </Typography>
-      <Typography>
-        Learn different algorithm patterns. <br />
-        Practice them on the go.
-      </Typography>
-      <NavLink to="/quiz">
-        <Button
-          variant={"contained"}
-          sx={{
-            mt: 4,
-            textTransform: "lowercase",
-            fontSize: "25px",
-            width: "200px",
-            background: "primary.main",
-            borderRadius: "45px",
-            fontWeight: "800",
-          }}
-        >
-          start
-        </Button>
-      </NavLink>
-      <Button
-        href={`${import.meta.env.VITE_API_URL}/api/auth/login/google`}
-        variant={"contained"}
+        my={2}
         sx={{
-          color: "secondary",
-          backgroundColor: "text.primary",
-          textTransform: "none",
-          fontSize: "1.2rem",
-          fontWeight: "bold",
-          borderRadius: "25px",
+          // width: "fit-content",
+          // border: "1px solid red",
+          maxWidth: "500px",
+          textAlign: "left",
         }}
       >
-        Sign in with Google
+        Grinding algorithm problems is a necessary evil if you want to land that
+        perfect software job today. But a smarter approach to studying involves
+        really getting a handle on the patterns behind the problems. Stop
+        memorizing solutions and start identifying the patterns that can help
+        you solve problems more efficiently.
+      </Typography>
+      <Box
+        sx={{
+          border: "2px solid grey",
+          borderRadius: "25px",
+          width: "80%",
+          boxShadow: "3px 4px 0px 0px grey",
+          my: 4,
+        }}
+      >
+        <Question
+          noAnswers={true}
+          quizInfo={{ currQ: 1, total: 1 }}
+          question={{
+            input: "example input",
+            output: "example output",
+            info: "Fizzbuzz is a common coding challenge that tests your understanding of loops and conditionals.",
+            name: "Container of Water",
+            questionText:
+              "Find the largest container that can hold water between two lines.",
+            answer: "example answer",
+          }}
+        />
+        <Box sx={{ display: "flex", justifyContent: "center" }}>
+          <Answer
+            answer={{ id: "1", ans: "two pointer" }}
+            handleClick={() => {}}
+            isSelected={true}
+            isCorrect={true}
+            showCorrectOnly={() => {}}
+          />
+        </Box>
+      </Box>
+      <Button
+        variant={"contained"}
+        sx={{
+          borderRadius: "25px",
+          textTransform: "none",
+          color: "inherit",
+          fontWeight: "800",
+          fontSize: "1.2rem",
+          bgcolor: "primary.dark",
+          px: 4,
+
+          "&:focus": {
+            outline: "none",
+          },
+          // py: 2,
+        }}
+      >
+        <NavLink
+          to={"/quiz"}
+          style={{ color: "inherit", textDecoration: "none" }}
+        >
+          Get Started
+        </NavLink>
       </Button>
-    </Stack>
+    </Box>
   );
 };
 

@@ -3,13 +3,16 @@ import { answers } from "../data/testData";
 import Answer from "./Answer";
 import { useState, useEffect } from "react";
 import { IAnswer } from "../interfaces/question";
+import NextButton from "./NextButton";
 
 const AnswerSet = ({
   correct,
   questionName,
+  nextOnClick,
 }: {
   questionName: string;
   correct: string;
+  nextOnClick: () => void;
 }) => {
   const [selected, setSelected] = useState<string>("");
   const [displayAnswers, setDisplayAnswers] = useState<IAnswer[]>(answers);
@@ -18,9 +21,9 @@ const AnswerSet = ({
     setSelected(id);
   };
 
-  const showCorrectOnly = (id: string) => {
-    setDisplayAnswers(answers.filter((answer) => answer.id === id));
-  };
+  // const showCorrectOnly = (id: string) => {
+  //   setDisplayAnswers(answers.filter((answer) => answer.id === id));
+  // };
 
   // clear answer with each new question
   useEffect(() => {
@@ -29,12 +32,22 @@ const AnswerSet = ({
   }, [questionName]);
 
   return (
-    <Box sx={{ pt: 2 }}>
-      <Typography>Choose a pattern</Typography>
+    <Box
+      sx={{
+        pt: 1,
+
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
       <Stack
         sx={{
           display: "flex",
-          justifyContent: "flex-start",
+          flexDirection: "row",
+          justifyContent: "center",
+          flexWrap: "wrap",
           width: "90%",
           p: 2,
         }}
@@ -45,10 +58,15 @@ const AnswerSet = ({
             handleClick={handleClick}
             isSelected={selected === answer.id}
             isCorrect={correct === answer.id}
-            showCorrectOnly={showCorrectOnly}
+            showCorrectOnly={() => {}}
           />
         ))}
       </Stack>
+      <NextButton
+        disabled={selected !== correct}
+        label={"next question"}
+        onClick={nextOnClick}
+      />
     </Box>
   );
 };
