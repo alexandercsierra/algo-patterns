@@ -1,4 +1,4 @@
-import { Stack, Box, Typography } from "@mui/material";
+import { Stack, Box } from "@mui/material";
 import { answers } from "../data/testData";
 import Answer from "./Answer";
 import { useState, useEffect } from "react";

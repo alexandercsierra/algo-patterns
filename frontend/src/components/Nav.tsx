@@ -33,24 +33,24 @@ const SignOutButton = () => {
   );
 };
 
-const SignInButton = () => {
-  return (
-    <Button
-      href={`${import.meta.env.VITE_API_URL}/api/auth/login/google`}
-      variant={"contained"}
-      sx={{
-        color: "secondary",
-        backgroundColor: "text.primary",
-        textTransform: "none",
-        fontSize: "1.2rem",
-        fontWeight: "bold",
-        borderRadius: "25px",
-      }}
-    >
-      Sign in with Google
-    </Button>
-  );
-};
+// const SignInButton = () => {
+//   return (
+//     <Button
+//       href={`${import.meta.env.VITE_API_URL}/api/auth/login/google`}
+//       variant={"contained"}
+//       sx={{
+//         color: "secondary",
+//         backgroundColor: "text.primary",
+//         textTransform: "none",
+//         fontSize: "1.2rem",
+//         fontWeight: "bold",
+//         borderRadius: "25px",
+//       }}
+//     >
+//       Sign in with Google
+//     </Button>
+//   );
+// };
 
 const Link = ({
   path,

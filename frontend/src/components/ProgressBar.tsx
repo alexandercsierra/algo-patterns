@@ -1,6 +1,6 @@
 import { Box } from "@mui/material";
 
-const ProgressBar = ({ currQ, total }) => {
+const ProgressBar = ({ currQ, total }: { currQ: number; total: number }) => {
   const progressPercentage = (currQ / total) * 100;
   return (
     <Box

@@ -1,7 +1,7 @@
 import { questionData } from "../data/testData";
 import { IQuestion } from "../interfaces/question";
 import Question from "../components/Question";
-import { Box, Fade } from "@mui/material";
+import { Box } from "@mui/material";
 import { useState } from "react";
 import ProgressBar from "../components/ProgressBar";
 

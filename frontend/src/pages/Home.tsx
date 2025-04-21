@@ -46,6 +46,7 @@ const Home = () => {
         }}
       >
         <Question
+          nextQuestion={() => {}}
           noAnswers={true}
           quizInfo={{ currQ: 1, total: 1 }}
           question={{
