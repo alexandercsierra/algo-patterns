@@ -13,34 +13,23 @@ const Home = () => {
         alignItems: "center",
         maxWidth: "1000px",
         margin: "0 auto",
+        px: { xs: 3, md: 0 },
       }}
     >
-      <Typography variant={"h2"} sx={{ fontWeight: "700" }}>
-        Algo Patterns To Go
-      </Typography>
-      <Typography variant={"h6"}>
-        study patterns to help you master algorithm problems on the go
-      </Typography>
       <Typography
-        my={2}
-        sx={{
-          // width: "fit-content",
-          // border: "1px solid red",
-          maxWidth: "500px",
-          textAlign: "left",
-        }}
+        variant={"h3"}
+        sx={{ color: "primary.main", fontWeight: "700", fontSize: "2.5rem" }}
       >
-        Grinding algorithm problems is a necessary evil if you want to land that
-        perfect software job today. But a smarter approach to studying involves
-        really getting a handle on the patterns behind the problems. Stop
-        memorizing solutions and start identifying the patterns that can help
-        you solve problems more efficiently.
+        Algo Pattern Practice
+      </Typography>
+      <Typography mt={2} sx={{ fontSize: "1rem" }}>
+        study patterns to help you master algorithm problems on the go
       </Typography>
       <Box
         sx={{
           border: "2px solid grey",
           borderRadius: "25px",
-          width: "80%",
+          width: "100%",
           boxShadow: "3px 4px 0px 0px grey",
           my: 4,
         }}
@@ -69,17 +58,29 @@ const Home = () => {
           />
         </Box>
       </Box>
+      <Typography
+        my={2}
+        sx={{
+          maxWidth: "500px",
+          textAlign: "left",
+          fontSize: "1rem",
+        }}
+      >
+        Grinding algorithm problems is a necessary evil if you want to land that
+        perfect software job today. But a smarter approach to studying involves
+        really getting a handle on the patterns behind the problems. Stop
+        memorizing solutions and start identifying the patterns that can help
+        you solve problems more efficiently.
+      </Typography>
       <Button
         variant={"contained"}
         sx={{
           borderRadius: "25px",
           textTransform: "none",
           color: "inherit",
-          fontWeight: "800",
-          fontSize: "1.2rem",
           bgcolor: "primary.dark",
           px: 4,
-
+          mt: 2,
           "&:focus": {
             outline: "none",
           },
@@ -88,7 +89,12 @@ const Home = () => {
       >
         <NavLink
           to={"/quiz"}
-          style={{ color: "inherit", textDecoration: "none" }}
+          style={{
+            color: "inherit",
+            textDecoration: "none",
+            fontWeight: "800",
+            fontSize: "1.2rem",
+          }}
         >
           Get Started
         </NavLink>
