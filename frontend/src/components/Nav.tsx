@@ -182,6 +182,7 @@ const Nav = () => {
               minHeight: "10vh",
               display: "flex",
               flexDirection: "column",
+              maxWidth: "200px",
             },
           }}
           anchorOrigin={{
