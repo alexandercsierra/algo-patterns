@@ -32,7 +32,6 @@ const Question = ({
         display={"flex"}
         alignItems={"center"}
         sx={{
-          pt: 4,
           mb: { xs: 0, md: 4 },
           width: { xs: "100%", md: "80%" },
           borderRadius: "25px",

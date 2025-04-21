@@ -37,7 +37,7 @@ const Answer = ({
       variant="contained"
       disableRipple
       sx={(theme) => ({
-        m: 1,
+        m: { xs: 0.75, md: 1 },
         border: "2px solid grey",
         width: "fit-content",
         display: "flex",
@@ -66,7 +66,7 @@ const Answer = ({
           color: "inherit",
           textAlign: "left",
           fontWeight: 800,
-          fontSize: { xs: ".875rem", md: "1rem" },
+          fontSize: { xs: ".75rem", md: "1rem" },
         }}
       >
         {ans}

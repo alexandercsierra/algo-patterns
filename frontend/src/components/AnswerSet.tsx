@@ -49,7 +49,7 @@ const AnswerSet = ({
           justifyContent: "center",
           flexWrap: "wrap",
           width: "90%",
-          p: 2,
+          p: { xs: 1, md: 2 },
         }}
       >
         {displayAnswers.map((answer) => (
